@@ -4,7 +4,13 @@ import (
 	"unicode"
 )
 
-func CountWordsInData(data []byte) int {
+type Counter struct {
+	countWords bool
+	countChars bool
+	countLines bool
+}
+
+func (c *Counter) CountWordsInData(data []byte) int {
 	inWord := false
 	wordCount := 0
 
@@ -22,11 +28,11 @@ func CountWordsInData(data []byte) int {
 	return wordCount
 }
 
-func CountCharsInData(data []byte) int {
+func (c *Counter) CountCharsInData(data []byte) int {
 	return len(data)
 }
 
-func CountLinesInData(data []byte) int {
+func (c *Counter) CountLinesInData(data []byte) int {
 	lineCount := 0
 
 	for _, b := range data {

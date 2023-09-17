@@ -33,18 +33,20 @@ func main() {
 		fmt.Printf("Byte count: %d\n", byteCount)
 	}
 
+	c := &ccwc.Counter{}
+
 	if opts.Chars {
-		characterCount := ccwc.CountCharsInData(fileData)
+		characterCount := c.CountCharsInData(fileData)
 		fmt.Printf("Character count: %d\n", characterCount)
 	}
 
 	if opts.Words {
-		wordCount := ccwc.CountWordsInData(fileData)
+		wordCount := c.CountWordsInData(fileData)
 		fmt.Printf("Word count: %d\n", wordCount)
 	}
 
 	if opts.Lines {
-		lineCount := ccwc.CountLinesInData(fileData)
+		lineCount := c.CountLinesInData(fileData)
 		fmt.Printf("Line count: %d\n", lineCount)
 	}
 }
