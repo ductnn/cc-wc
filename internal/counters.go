@@ -8,6 +8,7 @@ type Counter struct {
 	countWords bool
 	countChars bool
 	countLines bool
+	countBytes bool
 }
 
 func (c *Counter) CountWordsInData(data []byte) int {
@@ -42,4 +43,8 @@ func (c *Counter) CountLinesInData(data []byte) int {
 	}
 
 	return lineCount
+}
+
+func (c *Counter) CountBytesInData(data []byte) int64 {
+	return int64(len(data))
 }

@@ -28,12 +28,12 @@ func main() {
 		return
 	}
 
+	c := &ccwc.Counter{}
+
 	if opts.Bytes {
-		byteCount := int64(len(fileData))
+		byteCount := c.CountBytesInData(fileData)
 		fmt.Printf("Byte count: %d\n", byteCount)
 	}
-
-	c := &ccwc.Counter{}
 
 	if opts.Chars {
 		characterCount := c.CountCharsInData(fileData)
