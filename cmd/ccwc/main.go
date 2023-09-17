@@ -18,6 +18,7 @@ func main() {
 
 	if opts.FilePath == "" {
 		fmt.Println("Please provide a file path using the -f flag.")
+		fmt.Printf(ccwc.Usage)
 		return
 	}
 
