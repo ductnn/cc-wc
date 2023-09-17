@@ -12,7 +12,7 @@ ccwc ` + Version + `
 A Go word count (wc) clone - print newline, word, char, and byte counts for each file 
 
 USAGE:
-	gowc [FLAGS] [OPTIONS] [input]...
+	ccwc [FLAGS] [OPTIONS] [input]...
 
 FLAGS:
 	-c, --bytes              Print the byte counts.
@@ -20,7 +20,7 @@ FLAGS:
 	-l, --lines              Print the newline counts.
 	-w, --words              Print the word counts.
 	-h, --help               Display help and exit.
-	-V, --version            Output version information and exit.
+	-v, --version            Output version information and exit.
 
 OPTIONS:
 	-f <file>     Read input from the newline-terminated list of filenames in the given file.
@@ -39,14 +39,22 @@ type Options struct {
 
 func ParseOptions() *Options {
 	opts := new(Options)
+
 	flag.BoolVar(&opts.Words, "w", false, "Count words")
+	flag.BoolVar(&opts.Words, "words", false, "Count words")
 	flag.BoolVar(&opts.Lines, "l", false, "Count lines")
+	flag.BoolVar(&opts.Lines, "lines", false, "Count lines")
 	flag.BoolVar(&opts.Chars, "m", false, "Count chars")
+	flag.BoolVar(&opts.Chars, "chars", false, "Count chars")
 	flag.BoolVar(&opts.Bytes, "c", false, "Count bytes")
+	flag.BoolVar(&opts.Bytes, "bytes", false, "Count bytes")
 	flag.BoolVar(&opts.Version, "v", false, "print version")
+	flag.BoolVar(&opts.Version, "version", false, "print version")
 	flag.StringVar(&opts.FilePath, "f", "", "Path to the input file")
 
-	flag.Usage = func() { fmt.Print(Usage) }
+	flag.Usage = func() {
+		fmt.Print(Usage)
+	}
 
 	flag.Parse()
 
