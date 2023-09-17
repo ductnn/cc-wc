@@ -50,5 +50,11 @@ func ParseOptions() *Options {
 
 	flag.Parse()
 
+	if !opts.Lines && !opts.Words && !opts.Bytes && !opts.Chars {
+		opts.Lines = true
+		opts.Words = true
+		opts.Bytes = true
+	}
+
 	return opts
 }
