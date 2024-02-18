@@ -7,4 +7,4 @@ build-linux:
 	$(LINUX) -o bin/ccwc-linux cmd/ccwc/*.go
 
 build-mac:
-	$(MAC) -o bin/ccwc cmd/ccwc/*.go
+	$(MAC) -o bin/ccwc-mac cmd/ccwc/*.go
